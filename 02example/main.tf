@@ -9,6 +9,7 @@ variable "env_prefix" {}
 variable "my_ip" {}
 variable "instance_type" {}
 variable "public_key_location" {}
+variable "private_key_location" {}
 
 resource "aws_vpc" "myapp-vpc" {
     cidr_block = var.vpc_cidr_block
@@ -104,7 +105,7 @@ resource "aws_instance" "myapp-server" {
   key_name = aws_key_pair.ssh-key.key_name
 
   user_data = file("entry-script.sh")
-  
+
   tags = {
     "Name" = "${var.env_prefix}-myapp-server"
   }
@@ -115,6 +116,7 @@ resource "aws_key_pair" "ssh-key" {
   key_name = "02example-key"
   public_key = file(var.public_key_location)
 }
+
 output "aws_instance-public-ip" {
   value = aws_instance.myapp-server.public_ip
 }
