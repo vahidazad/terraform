@@ -16,10 +16,12 @@ resource "aws_internet_gateway" "myapp-igw" {
 
 resource "aws_route_table" "myapp_rtbl" {
   vpc_id = var.vpc_id
+  
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.myapp-igw.id
   }
+  
   tags = {
     Name = "${var.env_prefix}-rtbl"
   }
