@@ -32,8 +32,10 @@ resource "aws_security_group" "myapp_sg" {
 }
 
 data "aws_ami" "latest-ubuntu-image" {
+  
   most_recent = true
   owners = ["099720109477"]
+  
   filter {
     name = "name"
     values = [var.image_name]
@@ -46,7 +48,7 @@ data "aws_ami" "latest-ubuntu-image" {
 }
 
 resource "aws_instance" "myapp-server" {
-  ami = data.aws_ami.latest-amazon-linux-image.id
+  ami = data.aws_ami.latest-ubuntu-image.id
   instance_type = var.instance_type
   
   subnet_id = var.subnet_id
@@ -56,7 +58,7 @@ resource "aws_instance" "myapp-server" {
   associate_public_ip_address = true
   key_name = aws_key_pair.ssh-key.key_name
 
-  user_data = file("entry-script.sh")
+  user_data = "${file("entry-script.sh")}"
 
   tags = {
     "Name" = "${var.env_prefix}-myapp-server"
