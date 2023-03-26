@@ -15,5 +15,5 @@ asg_max_size         = "1"
 asg_min_size         = "1"
 env_prefix           = "dev"
 my_ip                = "0.0.0.0/0"
-public_key_location  = # location to your public key for SSH access
+#public_key_location  = # location to your public key for SSH access
 image_name           = "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"
