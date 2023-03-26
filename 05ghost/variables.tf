@@ -134,5 +134,5 @@ variable "asg_min_size" {
 variable "public_key_location" {
   description = "ASG maximum instance count"
   type        = string
-  #  Don't forget to set this in terraform.tfvars if required"
+  #  Don't forget to set this in terraform.tfvars"
 }
