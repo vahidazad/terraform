@@ -1,0 +1,13 @@
+variable "instance_type" {}
+variable "image_name" {}
+variable "avail_zone" {}
+variable "public_key_location" {}
+variable "db_address" {}
+variable "db_name" {}
+variable "db_username" {}
+variable "db_password" {}
+variable "max_size" {}
+variable "min_size" {}
+variable "ghost_vpc" {}
+variable "tags" {}
+variable "my_ip" {}
