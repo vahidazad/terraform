@@ -54,7 +54,7 @@ resource "aws_instance" "myapp-server" {
   user_data = file("entry-script.sh")
 
   tags = {
-    "Name" = "${var.env_prefix}-myapp-server"
+    "Name" = "web - ${terraform.workspace}"
   }
 }
 
